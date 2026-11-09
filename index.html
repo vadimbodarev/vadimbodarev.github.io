@@ -3,53 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Murmuration — Interactive Bird Flock</title>
-  <meta name="description" content="Interactive 3D bird flock simulation that follows your cursor in real-time.">
+  <title>Anotimpuri & Zbor — Interactive Nature & Bird Flock</title>
+  <meta name="description" content="Peisaj interactiv cu munți, lac, pădure de pini, răsărit de soare, lună plină și un stol realist de păsări care urmărește cursorul în cele 4 anotimpuri.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Interactive Canvas for 3D Bird Flock -->
+  <!-- Fullscreen Interactive Canvas -->
   <canvas id="flock-canvas"></canvas>
 
   <!-- Minimalist Floating UI Overlay -->
   <div class="ui-layer">
     <header class="top-nav">
       <div class="brand">
-        <span class="brand-dot"></span>
-        <span class="brand-title">AETHER FLOCK</span>
+        <span class="brand-dot" id="season-dot"></span>
+        <span class="brand-title">NATURA & ZBOR</span>
       </div>
 
       <div class="stats-pill">
-        <span id="bird-count-label">180 Păsări</span>
+        <span id="bird-count-label">160 Păsări</span>
         <span class="divider">•</span>
-        <span id="mode-label">Urmărire Cursor</span>
+        <span id="season-status">Primăvara</span>
       </div>
     </header>
 
     <main class="hero-center" id="hero-card">
       <p class="subtitle">SIMULARE INTERACTIVĂ ÎN TIMP REAL</p>
-      <h1 class="main-heading">Zbor în Armonie</h1>
+      <h1 class="main-heading">Armonia Naturii</h1>
       <p class="description">
-        Mișcă cursorul pe ecran — stolul de păsări te va urma organic. Apasă click pentru a crea un impuls de dispersie.
+        Mișcă cursorul pentru a ghida stolul de păsări deasupra lacului și pădurii de pini. Apasă click pentru un impuls de zbor.
       </p>
     </main>
 
     <footer class="bottom-controls">
-      <div class="control-group">
-        <button class="ctrl-btn active" data-theme="twilight" id="btn-twilight">Amurg</button>
-        <button class="ctrl-btn" data-theme="dawn" id="btn-dawn">Zori Aurii</button>
-        <button class="ctrl-btn" data-theme="midnight" id="btn-midnight">Noapte</button>
-      </div>
-
+      <!-- Left controls: UI & Scatter -->
       <div class="control-group">
         <button class="ctrl-btn" id="btn-scatter" title="Risipește stolul">
-          <span>Impuls (Click)</span>
+          <span>Impuls Zbor</span>
         </button>
-        <button class="ctrl-btn" id="btn-toggle-ui" title="Ascunde/Arată textul">
+        <button class="ctrl-btn" id="btn-toggle-ui" title="Ascunde sau arată cardul central">
           <span>Ascunde Text</span>
+        </button>
+      </div>
+
+      <!-- Bottom-Right: 4 Seasons Selector -->
+      <div class="control-group seasons-selector" role="group" aria-label="Alege anotimpul">
+        <button class="ctrl-btn season-btn active" data-season="spring" id="btn-spring">
+          <span class="season-icon">🌸</span>
+          <span>Primăvara</span>
+        </button>
+        <button class="ctrl-btn season-btn" data-season="summer" id="btn-summer">
+          <span class="season-icon">☀️</span>
+          <span>Vara</span>
+        </button>
+        <button class="ctrl-btn season-btn" data-season="autumn" id="btn-autumn">
+          <span class="season-icon">🍂</span>
+          <span>Toamna</span>
+        </button>
+        <button class="ctrl-btn season-btn" data-season="winter" id="btn-winter">
+          <span class="season-icon">❄️</span>
+          <span>Iarna</span>
         </button>
       </div>
     </footer>
